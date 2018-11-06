@@ -1,0 +1,64 @@
+{% extends 'eventos/base.html'%} 
+{% load static %} 
+{% block titulo %}Detalle persona{% endblock %} 
+{% block content %} 
+<!-- banner -->
+<div class="sub-banner">
+
+		
+</div>
+<!-- banner -->
+<div class="events-w3layouts">
+        
+    <div class="events-section2-agileinfo">
+    <div class="container">
+        <div class="blog1-w3ls">
+            
+            <div class="col-md-8 blog-text-w3ls">
+                <h4>{{post.nombre}}</h4>
+                <div class="item_info">
+                        <ul>
+                            <li><i class="glyphicon glyphicon-description"></i>Edad:  {{post.edad}}</a></li>
+                            
+                        </ul>	
+                       
+                        		
+                 </div>
+                 <div class="item_info">
+                        <ul>
+                            <li><i class="glyphicon glyphicon-description"></i>Telefono:  {{post.telefono}}</a></li>
+                            
+                        </ul>	
+                       
+                        		
+                 </div>
+
+                 <div class="item_info">
+                        <td>
+  					<ul>
+                      Eventos:
+  						{% for persona in post.eventos.all %}
+                          <div class="item_info">
+  							<li>{{persona.nombre}}</li>
+                              </div>
+  						{% endfor %}
+  					</ul>
+
+  				</td>
+                       
+                        		
+                 </div>
+                 
+				 
+
+            </div>
+              {% if user.is_authenticated %}
+              <a class="btn btn-default" href="{% url 'editar_persona' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'persona_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            {% endif %}
+            <div class="clearfix"></div>
+        </div> 
+        
+    </div>
+    </div>
+{% endblock %}

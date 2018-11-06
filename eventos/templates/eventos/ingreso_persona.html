@@ -1,6 +1,6 @@
 {% extends 'eventos/base.html'%} 
 {% load static %} 
-{% block titulo %}Ingresar evento{% endblock %} 
+{% block titulo %}Inscripcion{% endblock %} 
 {% block content %} 
 <!-- banner -->
 <div class="sub-banner">
@@ -19,9 +19,9 @@
                 <div class="item_info">
                         <ul>
                            
-        <h1>Nuevo Evento</h1>
+        <h1>Nueva Persona</h1>
         <form method="POST" class="post-form">{% csrf_token %}
-            {{ form.as_p }}
+            {{ formulario.as_p }}
             <button type="submit" class="save btn btn-default">Guardar</button>
         </form>
     
