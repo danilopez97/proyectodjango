@@ -1,0 +1,44 @@
+{% extends 'eventos/base.html'%} 
+{% load static %} 
+{% block titulo %}Eventos{% endblock %} 
+{% block content %} 
+<!-- banner -->
+<div class="sub-banner">
+
+		
+</div>
+<!-- banner -->
+<div class="events-w3layouts">
+{% if user.is_authenticated %}
+<h4>
+        <a href="{% url 'evento_nuevo' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Evento nuevo</a>
+
+</h4>
+{% endif %}
+
+        {% for post in posts %} 
+    <div class="events-section2-agileinfo">
+    <div class="container">
+        <div class="blog1-w3ls">
+            
+            <div class="col-md-8 blog-text-w3ls">
+                <h4>{{post.nombre}}</h4>
+                <div class="item_info">
+                        <ul>
+                            <li><i class="glyphicon glyphicon-description"></i>{{post.descripcion}}</a></li>
+                        </ul>				
+                 </div>
+                
+                 <a href="{% url 'detalle_evento' pk=post.pk %}" class="blog-read" >Detalle</a>
+				 
+
+            </div>
+            <div class="clearfix"></div>
+            
+        </div> 
+        
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}
+

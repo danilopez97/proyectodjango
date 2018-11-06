@@ -1,0 +1,46 @@
+{% extends 'eventos/base.html'%} 
+{% load static %} 
+{% block titulo %}Editar_evento{% endblock %} 
+{% block content %} 
+<!-- banner -->
+<div class="sub-banner">
+
+		
+</div>
+<!-- banner -->
+<div class="events-w3layouts">
+        
+    <div class="events-section2-agileinfo">
+    <div class="container">
+        <div class="blog1-w3ls">
+            
+            <div class="col-md-8 blog-text-w3ls">
+                <h4>{{post.nombre}}</h4>
+                <div class="item_info">
+                        <ul>
+                           
+        <h1>Editar Evento</h1>
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Guardar</button>
+        </form>
+    
+                            
+                        </ul>	
+                       
+                        		
+                 </div>
+                 
+
+                
+                 
+				 
+
+            </div>
+            <div class="clearfix"></div>
+        </div> 
+        
+    </div>
+    </div>
+{% endblock %}
+
