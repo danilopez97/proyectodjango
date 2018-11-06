@@ -55,13 +55,14 @@
                        
                         <li class="hover-effect"><a href="{% url 'listar_eventos'  %}">Eventos</a></li>
                         <li class="hover-effect"><a href="{% url 'listar_personas'  %}">Personas</a></li>
+                     <li class="hover-effect"><a href="{% url 'login' %}">Login</a></li>
 
 
                         {% else %}
                       
                         <li class="hover-effect"><a href="{% url 'listar_eventos'  %}">Eventos</a></li>
                         <li class="hover-effect"><a href="{% url 'listar_personas'  %}">Personas</a></li>
-                        
+                        <li class="hover-effect"><a href="{% url 'logout' %}">Cerrar sesion</a></li>
 
             
                         {%endif%}

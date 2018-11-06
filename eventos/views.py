@@ -4,6 +4,10 @@ from django.contrib import messages
 from .forms import EventoForm,PersonaForm
 from eventos.models import Persona, Evento
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+
+from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LoginView
 
 
 # Create your views here.
@@ -22,7 +26,7 @@ def inicio(request):
     return render(request,'eventos/index.html')
 
 
-
+@login_required
 def editar_evento(request, pk):
     post = get_object_or_404(Evento, pk=pk)
     if request.method == "POST":
@@ -35,6 +39,7 @@ def editar_evento(request, pk):
         form = EventoForm(instance=post)
         return render(request, 'eventos/editar_evento.html', {'form': form})
 
+@login_required
 def evento_nuevo(request):
         if request.method == "POST":
             form = EventoForm(request.POST)
@@ -46,7 +51,7 @@ def evento_nuevo(request):
             form = EventoForm()
         return render(request, 'eventos/ingreso_evento.html', {'form': form})
 
-
+@login_required
 def evento_remove(request, pk):
     post = get_object_or_404(Evento, pk=pk)
     post.delete()
@@ -63,6 +68,7 @@ def detalle_persona(request, pk):
         post = get_object_or_404(Persona, pk=pk)
         return render(request, 'eventos/detalle_personas.html', {'post': post})
 
+@login_required
 def persona_nueva(request):
     if request.method == "POST":
         formulario = PersonaForm(request.POST,request.FILES)
@@ -78,6 +84,7 @@ def persona_nueva(request):
 
     return render(request, 'eventos/ingreso_persona.html', {'formulario': formulario})
 
+@login_required
 def editar_persona(request, pk):
     prod = get_object_or_404(Persona, pk=pk)
 
@@ -101,6 +108,7 @@ def editar_persona(request, pk):
         form = PersonaForm(instance=prod)
     return render(request, 'eventos/editar_persona.html', {'form': form})
 
+@login_required
 def persona_remove(request, pk):
     post = get_object_or_404(Persona, pk=pk)
     post.delete()
