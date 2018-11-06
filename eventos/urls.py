@@ -10,6 +10,8 @@ urlpatterns = [
     url(r'^listar/evento/$', views.listar_eventos, name='listar_eventos'),
     url(r'persona/(?P<pk>[0-9]+)/$', views.detalle_persona, name='detalle_persona'),
     url(r'^persona/(?P<pk>[0-9]+)/editar/$', views.editar_persona, name='editar_persona'),
+    #    url(r'^persona/(?P<pk>\d+)/eliminar/$', views.persona_remove, name='persona_remove'),
+
     url(r'^listar/persona/$', views.listar_personas, name='listar_personas'),
     url(r'^persona/nueva/$', views.persona_nueva, name='persona_nueva'),
     url(r'^persona/(?P<pk>\d+)/remove/$', views.persona_remove, name='persona_remove'),

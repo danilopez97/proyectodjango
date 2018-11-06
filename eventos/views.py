@@ -14,6 +14,8 @@ from django.contrib.auth.views import LoginView
 def detalle_evento(request, pk):
         post = get_object_or_404(Evento, pk=pk)
         return render(request, 'eventos/detalle_eventos.html', {'post': post})
+        #        return render(request, 'eventos/.html', {'post': post})
+
 
 
 
@@ -34,6 +36,7 @@ def editar_evento(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
+           # formulario.save()
             return redirect('detalle_evento', pk=post.pk)
     else:
         form = EventoForm(instance=post)
@@ -76,7 +79,7 @@ def persona_nueva(request):
             add=formulario.save(commit=False)
             add.save()
             formulario.save_m2m()
-            messages.add_message(request, messages.SUCCESS, 'Evento Guardado Exitosamente')
+            #form.save_m2m()
             return redirect('detalle_persona', pk=add.pk)    
     else:
 
